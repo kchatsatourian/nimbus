@@ -1,0 +1,24 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "kchatsatourian@gmail.com",
+                "Name": "Konstantinos Chatsatourian"
+            }
+        ],
+        "Category": "",
+        "Description": "Nimbus is a Plasma panel featuring simple menu, task manager and system tray.",
+        "EnabledByDefault": true,
+        "Id": "com.github.kchatsatourian.nimbus",
+        "License": "MIT",
+        "Name": "Nimbus",
+        "ServiceTypes": [
+            "Plasma/LayoutTemplate"
+        ],
+        "Website": "https://github.com/kchatsatourian/nimbus"
+    },
+    "X-Plasma-ContainmentCategories": [
+        "panel"
+    ],
+    "X-Plasma-Shell": "plasmashell"
+}
