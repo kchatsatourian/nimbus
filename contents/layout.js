@@ -1,12 +1,12 @@
-var panel = new Panel
-var panelScreen = panel.screen
+var panel = new Panel;
+var panelScreen = panel.screen;
 
 // No need to set panel.location as ShellCorona::addPanel will automatically pick one available edge
 
 // For an Icons-Only Task Manager on the bottom, *3 is too much, *2 is too little
 // Round down to next highest even number since the Panel size widget only displays
 // even numbers
-panel.height = 2 * Math.floor(gridUnit * 2.5 / 2)
+panel.height = 2 * Math.floor(gridUnit * 2.5 / 2);
 
 // Restrict horizontal panel to a maximum size of a 21:9 monitor
 const maximumAspectRatio = 21/9;
@@ -21,12 +21,12 @@ if (panel.formFactor === "horizontal") {
     }
 }
 
-panel.addWidget("org.kde.plasma.simplemenu")
+panel.addWidget("org.kde.plasma.simplemenu");
 
-//panel.addWidget("org.kde.plasma.showActivityManager")
-panel.addWidget("org.kde.plasma.pager")
+//panel.addWidget("org.kde.plasma.showActivityManager");
+panel.addWidget("org.kde.plasma.pager");
 
-var tasks = panel.addWidget("org.kde.plasma.icontasks")
+var tasks = panel.addWidget("org.kde.plasma.icontasks");
 var launchers = [
     "applications:org.kde.dolphin.desktop",
     "applications:microsoft-edge.desktop",
@@ -37,19 +37,19 @@ var launchers = [
     "applications:postman.desktop",
     "applications:idea.desktop",
     "applications:vlc.desktop",
-    "applications:spotify.desktop",
+    "applications:com.spotify.Client.desktop",
     "applications:steam.desktop",
-    "applications:org.telegram.desktop",
+    "applications:org.telegram.desktop.desktop",
     "applications:discord.desktop",
     "applications:org.keepassxc.KeePassXC.desktop",
     "applications:org.qbittorrent.qBittorrent.desktop"
-]
+];
 
-tasks.currentConfigGroup = ["General"]
-tasks.writeConfig("launchers", launchers)
-// panel.addWidget("org.kde.plasma.panelspacer")
+tasks.currentConfigGroup = ["General"];
+tasks.writeConfig("launchers", launchers);
+// panel.addWidget("org.kde.plasma.panelspacer");
 
-panel.addWidget("org.kde.plasma.marginsseparator")
+panel.addWidget("org.kde.plasma.marginsseparator");
 
 /* Next up is determining whether to add the Input Method Panel
  * widget to the panel or not. This is done based on whether
@@ -58,7 +58,8 @@ panel.addWidget("org.kde.plasma.marginsseparator")
  * our supported IME backends when chosen during installation
  * of common distributions. */
 
-var langIds = ["as",    // Assamese
+var langIds = [
+    "as",    // Assamese
     "bn",    // Bengali
     "bo",    // Tibetan
     "brx",   // Bodo
@@ -88,16 +89,17 @@ var langIds = ["as",    // Assamese
     "ur",    // Urdu
     "vi",    // Vietnamese
     "zh_CN", // Simplified Chinese
-    "zh_TW"] // Traditional Chinese
+    "zh_TW"  // Traditional Chinese
+];
 
-if (langIds.indexOf(languageId) != -1) {
+if (langIds.indexOf(languageId) !== -1) {
     panel.addWidget("org.kde.plasma.kimpanel");
 }
 
-panel.addWidget("org.kde.plasma.systemtray")
-// panel.addWidget("org.kde.plasma.colorpicker")
+panel.addWidget("org.kde.plasma.systemtray");
+// panel.addWidget("org.kde.plasma.colorpicker");
 
-var clock = panel.addWidget("org.kde.plasma.digitalclock")
+var clock = panel.addWidget("org.kde.plasma.digitalclock");
 clock.currentConfigGroup = ["Appearance"];
 clock.writeConfig("showSeconds", true);
 clock.writeConfig("showDate", true);
@@ -109,4 +111,4 @@ clock.writeConfig("use24hFormat", 2);
 clock.writeConfig("firstDayOfWeek", 1);
 clock.writeConfig("enabledCalendarPlugins", ["/usr/lib/qt/plugins/plasmacalendarplugins/astronomicalevents.so", "/usr/lib/qt/plugins/plasmacalendarplugins/holidaysevents.so"]);
 
-panel.addWidget("org.kde.plasma.showdesktop")
+panel.addWidget("org.kde.plasma.showdesktop");
